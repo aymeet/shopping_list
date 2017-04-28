@@ -21,8 +21,13 @@ def add_new_shopping_list(lists_by_name, new_list_name):
       None
     """
 
-    # your code here! 
-    pass
+    if lists_by_name.get(new_list_name) is None:
+        lists_by_name[new_list_name] = []
+
+    print lists_by_name
+
+
+    
 
 
 def remove_shopping_list(lists_by_name, list_name_to_remove):
@@ -38,8 +43,10 @@ def remove_shopping_list(lists_by_name, list_name_to_remove):
       None
     """
 
-    # your code here! 
-    pass
+    if lists_by_name.get(list_name_to_remove) is None: 
+        print list_name_to_remove + " does not exist"
+    else:
+        del lists_by_name[list_name_to_remove]
 
 
 def add_to_shopping_list(lists_by_name, list_name, items):
@@ -88,8 +95,9 @@ def display_shopping_list(lists_by_name, list_name):
       None
     """
 
-    # your code here! 
-    pass
+    for item in lists_by_name:
+        print item
+    
 
 
 def show_all_lists(lists_by_name):
@@ -100,13 +108,13 @@ def show_all_lists(lists_by_name):
     Returns:
       None
     """
-
-    # your code here! 
-    pass
+    for item in lists_by_name:
+        print item
+   
 
 
 def parse_string_of_items(items_string):
-    """Split input sting on commas and return the list of items.
+    """Split input string on commas and return the list of items.
 
     Trim leading and trailing whitespace.
 
